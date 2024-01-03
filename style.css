@@ -1,66 +1,170 @@
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 body {
-	margin: 0;
-	font-family: 'Inter', sans-serif;
-	--background: #1F2937;
-	--color: #FFF;
-	--sub-color: #D5D4D8;
-	--highlight: #10B981;
-	--output-color: #55F991;
-	--output-background: #273549;
-	color: var(--color);
-	background: var(--background);
-	padding: 50px;
+    --light-bg: #ECFDF5;
+    --light-color: #2B283A;
+    --light-sub-color: #6B7280;
+    --light-highlight: #10B981;;
+
+    --dark-bg: #1F2937;
+    --dark-color: #FFF;
+    --dark-sub-color: #D5D4D8;
+    --dark-highlight: #4ADF86;
+
+    --color: var(--dark-color);
+    --bg: var(--dark-bg);
+    --sub-color: var(--dark-sub-color);
+    --highlight: var(--dark-highlight);
+
+    --output-color: #55F991;
+    --output-background: #273549;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--color);
+    background: var(--bg);
+    padding: 50px;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --color: var(--dark-color);
+        --bg: var(--dark-bg);
+        --sub-color: var(--dark-sub-color);
+        --highlight: var(--dark-highlight);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        --color: var(--light-color);
+        --bg: var(--light-bg);
+        --sub-color: var(--light-sub-color);
+        --highlight: var(--light-highlight);
+    }
 }
 
 .title {
-	font-family: 'Karla', sans-serif;
-	font-size: 40px;
-	font-weight: 800;
-	line-height: 1;
-	margin: 1.5em 0 0;
+    font-family: 'Karla', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+    margin: 1.5em 0 0;
 }
 
 .highlight {
-	color: var(--highlight);
+    color: var(--highlight);
 }
 
 .subtitle {
-	color: var(--sub-color);
-	font-size: 20px;
-	line-height: 1.4;
-	margin: 10px 0;
+    color: var(--sub-color);
+    font-size: 20px;
+    line-height: 1.4;
+    margin: 10px 0;
 }
 
 .btn {
-	display: block;
-	border: none;
-	border-radius: 6px;
-	background: var(--highlight);
-	color: #FFF;
-	font-size: 16px;
-	padding: 0.625em 1em;
-	cursor: pointer;
+    display: block;
+    border: none;
+    border-radius: 6px;
+    background: var(--highlight);
+    color: #FFF;
+    font-size: 16px;
+    padding: 0.625em 1em;
+    cursor: pointer;
 }
 
 #generate-btn {
-	margin: 40px 0 35px;
+    margin: 40px 0 35px;
 }
 
 .pw-field {
-	color: var(--output-color);
-	background: var(--output-background);
-	text-align: center;
-	font-size: 16px;
-	line-height: 2;
-	border: none;
-	border-radius: 6px;
-	padding: 0.25em 1em;
-	margin: 35px 10px;
+    color: var(--output-color);
+    background: var(--output-background);
+    text-align: center;
+    font-size: 16px;
+    line-height: 2;
+    border: none;
+    border-radius: 6px;
+    padding: 0.25em 1em;
+    margin: 35px 10px;
 }
 
 .pw-field:first-child {
-	margin-left: 0;
+    margin-left: 0;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: -8px;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  background-color: #CCC;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--output-background);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--highlight);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--highlight);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider-label {
+    margin: 5px;
+    line-height: 1.8;
+}
+
+#num-chars {
+    color: var(--output-color);
+    background: var(--output-background);
+    text-align: center;
+    font-size: 16px;
+    line-height: 2;
+    border: none;
+    border-radius: 6px;
+    padding: 0.25em;
+    margin: 10px;
+    width: 80px;
+}
+
+.notification {
+
 }
